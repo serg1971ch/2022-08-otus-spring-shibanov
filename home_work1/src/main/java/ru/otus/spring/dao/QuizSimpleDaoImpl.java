@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QuizSimpleDaoImpl implements QuizDao {
     final int INDEX_QUESTION = 0;
@@ -65,7 +67,7 @@ public class QuizSimpleDaoImpl implements QuizDao {
         System.out.println("Shoose number of response");
         int id = sc.nextInt();
         while (true) {
-            if(id>3) {
+            if (id > 3 || id == 0) {
                 System.out.println("Write a correct number from 1 to 3");
                 id = sc.nextInt();
             } else {
