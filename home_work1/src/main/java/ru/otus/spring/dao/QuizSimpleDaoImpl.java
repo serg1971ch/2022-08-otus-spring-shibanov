@@ -65,7 +65,7 @@ public class QuizSimpleDaoImpl implements QuizDao {
         System.out.println("Shoose number of response");
         int id = sc.nextInt();
         while (true) {
-            if(id>3||id==0) {
+            if(id > 3 || id==0) {
                 System.out.println("Write a correct number from 1 to 3");
                 id = sc.nextInt();
             } else {
