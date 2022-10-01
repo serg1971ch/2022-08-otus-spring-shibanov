@@ -32,7 +32,7 @@ public class QuizSimpleDaoImpl implements QuizDao {
     private ArrayList<Quiz> parseFile() {
         List<String> lines = null;
         String[] columns;
-        String url = "C:\\Users\\ASUS\\Desktop\\quiz_dz\\src\\main\\resources\\quiz.csv";
+        String url = "home_work1/src/main/resources/quiz.csv";
         try {
             lines = Files.readAllLines(Paths.get(url));
         } catch (IOException e) {
@@ -64,11 +64,19 @@ public class QuizSimpleDaoImpl implements QuizDao {
         System.out.println("3) " + response3);
         System.out.println("Shoose number of response");
         int id = sc.nextInt();
+        while (true) {
+            if(id>3) {
+                System.out.println("Write a correct number from 1 to 3");
+                id = sc.nextInt();
+            } else {
+                break;
+            }
+        }
+
         Answer[] answerList = new Answer[3];
         answerList[0] = quiz.getAnswerFirst();
         answerList[1] = quiz.getAnswerSecond();
         answerList[2] = quiz.getAnswerThird();
-
         if (answerList[id - 1].getType().equals(TypeResponse.RIGHT)) {
             System.out.println("this is right");
             rigtResponse++;
@@ -79,6 +87,7 @@ public class QuizSimpleDaoImpl implements QuizDao {
     }
 
     public static void printResult(String name) {
+        System.out.println("\n ===================================================");
         System.out.println("Dear " + name + ", you are right in - " + rigtResponse + " times" + " and wrong in - " + wrongResponse + " times");
         if (rigtResponse > wrongResponse) {
             System.out.println("\n ===================================================");

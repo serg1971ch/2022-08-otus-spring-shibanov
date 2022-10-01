@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="quiz_dz" target="11.0.11" />
+      <module name="quiz_dz" target="11.0.12" />
     </bytecodeTargetLevel>
   </component>
 </project>
