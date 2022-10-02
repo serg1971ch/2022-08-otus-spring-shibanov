@@ -3,12 +3,18 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!-- TODO: определите бин класса ru.otus.spring.dao.ParseQuizDaoImpl -->
+    <bean id = "parseDao" class="ru.otus.spring.dao.ParseQuizDaoImpl">
+    </bean>
+    <bean id = "testDao" class="ru.otus.spring.dao.TestDaoImpl">
+    </bean>
     <!-- TODO: определите бин класса ru.otus.spring.dao.PersonDaoSimple -->
     <bean id="quizDao" class="ru.otus.spring.dao.QuizSimpleDaoImpl">
+        <constructor-arg name = "parse" ref="parseDao"/>
     </bean>
-    <!-- TODO: определите бин класса ru.otus.spring.PersonServiceImpl -->
-    <bean id="quizServiceImpl" class="ru.otus.spring.service.QuizServiceImpl">
-        <constructor-arg ref="quizDao"/>
+    <!-- TODO: определите бин класса ru.otus.spring.QuizServiceImpl -->
+    <bean id="quizService" class="ru.otus.spring.service.QuizServiceImpl">
+        <constructor-arg  name="daoQuiz" ref="quizDao"/>
+        <constructor-arg name="daoTest"  ref="testDao"/>
     </bean>
 </beans>
