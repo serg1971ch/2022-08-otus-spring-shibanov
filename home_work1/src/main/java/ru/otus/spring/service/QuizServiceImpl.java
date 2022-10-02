@@ -7,9 +7,9 @@ import ru.otus.spring.domain.Quiz;
 
 import java.util.Scanner;
 
-public class QuizServiceImpl implements QuizDao {
-    final private QuizDao daoQuiz;
-    final private TestDao daoTest;
+public class QuizServiceImpl implements QuizService {
+    private final QuizDao daoQuiz;
+    private final TestDao daoTest;
     String name;
     String surname;
     Scanner sc = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class QuizServiceImpl implements QuizDao {
     }
 
     @Override
-    public Quiz findById(int id) {
+    public Quiz getById(int id) {
         return daoQuiz.findById(id);
     }
 
@@ -34,11 +34,12 @@ public class QuizServiceImpl implements QuizDao {
         return String.valueOf(sc.nextLine());
     }
 
+    @Override
     public void getTest() {
+        name = getName();
+        surname = getSurname();
         for (int i = 0; i < 5; i++) {
-            Quiz quiz = this.findById(i);
-            name = getName();
-            surname = getSurname();
+            Quiz quiz = this.getById(i);
             daoTest.printDao(name, surname, quiz);
         }
         daoTest.printResultTest(name);
