@@ -7,15 +7,18 @@ import ru.otus.spring.domain.Quiz;
 
 import java.util.Scanner;
 
-public class QuizServiceImpl implements QuizService {
-    private final QuizDao daoQuiz;
+public class QuizServiceImpl implements QuizDao {
+    final private QuizDao daoQuiz;
+    final private TestDao daoTest;
+
 
     public QuizServiceImpl(QuizDao daoQuiz, TestDao daoTest) {
         this.daoQuiz = daoQuiz;
+        this.daoTest = daoTest;
     }
 
     @Override
-    public Quiz getById(int id) {
+    public Quiz findById(int id) {
         return daoQuiz.findById(id);
     }
 

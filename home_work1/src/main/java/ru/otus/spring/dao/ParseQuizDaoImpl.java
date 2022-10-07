@@ -1,9 +1,16 @@
 package ru.otus.spring.dao;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 import ru.otus.spring.domain.Answer;
 import ru.otus.spring.domain.Quiz;
 import ru.otus.spring.domain.TypeResponse;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,7 +29,11 @@ public class ParseQuizDaoImpl implements ParseDao {
     ArrayList<Quiz> quizzes = new ArrayList<>();
 
     @Override
-    public ArrayList<Quiz> parseFile() {
+    public ArrayList<Quiz> parseFile() throws IOException, SAXException, ParserConfigurationException {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document doc = db.parse(new File("src/main/resources/resource.xml"));
+        NodeList nameFile = doc.getElementsByTagName("name");
         List<String> lines = null;
         String[] columns;
         String url = "home_work1/src/main/resources/quiz.csv";

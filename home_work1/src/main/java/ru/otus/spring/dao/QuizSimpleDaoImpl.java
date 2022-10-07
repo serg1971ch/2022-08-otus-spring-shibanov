@@ -21,7 +21,7 @@ public class QuizSimpleDaoImpl implements QuizDao {
 
     @Override
     public Quiz findById(int id) {
-        quizzesList = parse.parseFile();
+//        quizzesList = parse.parseFile();
         return quizzesList.get(id);
     }
 }

@@ -28,12 +28,12 @@ public class ProvideTestServiceImpl implements ProvideTestService{
 
     @Override
     public void getTest() {
-        name = getName();
-        surname = getSurname();
-        for (int i = 0; i < 5; i++) {
-            Quiz quiz = quizService.getById(i);
-            daoTest.printDao(name, surname, quiz);
-        }
-        daoTest.printResultTest(name);
+//        name = getName();
+//        surname = getSurname();
+//        for (int i = 0; i < 5; i++) {
+//            Quiz quiz = quizService.getById(i);
+//            daoTest.printDao(name, surname, quiz);
+//        }
+//        daoTest.printResultTest(name);
     }
 }
