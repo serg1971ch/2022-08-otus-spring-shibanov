@@ -1,4 +1,4 @@
-package ru.otus.spring.dao;
+package ru.otus.spring.service;
 
 import ru.otus.spring.domain.Answer;
 import ru.otus.spring.domain.Quiz;
@@ -6,9 +6,9 @@ import ru.otus.spring.domain.TypeResponse;
 
 import java.util.Scanner;
 
-public class TestDaoImpl implements TestDao {
-    private static int wrongResponse = 0;
-    private static int rigtResponse = 0;
+public class TestServiceImp implements TestService{
+    private int wrongResponse = 0;
+    private int rigtResponse = 0;
 
     @Override
     public void printDao(String name, String surname, Quiz quiz) {
@@ -66,4 +66,3 @@ public class TestDaoImpl implements TestDao {
         }
     }
 }
-
