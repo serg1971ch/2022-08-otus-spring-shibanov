@@ -8,6 +8,7 @@
     <bean id = 'io' class="ru.otus.spring.service.IOServiceTest" abstract="true">
     </bean>
     <bean id="quizDao" class="ru.otus.spring.dao.QuizSimpleDaoImpl">
+        <constructor-arg value="quiz.csv"/>
     </bean>
 <!--    <bean id = "ioRef" class="java.io.PrintStream">-->
 <!--    </bean>-->
