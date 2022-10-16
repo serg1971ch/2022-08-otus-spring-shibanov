@@ -42,7 +42,7 @@ public class QuizServiceImpl implements QuizService {
         }
     }
 
-        private Answer[] getAnswerList (Quiz quiz, int id){
+        private void getAnswerList (Quiz quiz, int id){
             Answer[] answerList = new Answer[3];
             answerList[0] = quiz.getAnswerFirst();
             answerList[1] = quiz.getAnswerSecond();
@@ -54,7 +54,6 @@ public class QuizServiceImpl implements QuizService {
                 System.out.println("it's wrong");
                 wrongResponse++;
             }
-            return answerList;
         }
     }
 

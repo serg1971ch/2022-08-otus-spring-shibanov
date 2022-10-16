@@ -17,5 +17,6 @@
     <!-- TODO: определите бин класса ru.otus.spring.service.TestServiceImp.otus.spring.QuizServiceImpl -->
     <bean id="service" class="ru.otus.spring.service.QuizServiceImpl">
         <constructor-arg  name="daoQuiz" ref="quizDao"/>
+        <constructor-arg name ="test" ref="ioService"/>
     </bean>
 </beans>

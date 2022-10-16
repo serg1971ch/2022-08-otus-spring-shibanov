@@ -31,9 +31,9 @@ public class QuizSimpleDaoImpl implements QuizDao {
     private ArrayList<Quiz> parseFile() {
         List<String> lines = null;
         String[] columns;
-//        String url = "home_work1/src/main/resources/quiz.csv";
+        String url = "home_work1/src/main/resources/";
         try {
-            lines = Files.readAllLines(Paths.get(refSourseFile));
+            lines = Files.readAllLines(Paths.get(url + refSourseFile));
         } catch (IOException e) {
             e.printStackTrace();
         }
