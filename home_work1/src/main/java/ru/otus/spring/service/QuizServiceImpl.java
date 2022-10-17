@@ -25,21 +25,28 @@ public class QuizServiceImpl implements QuizService {
     }
 
     public void testProvider() {
-        test.out("\n ===================================================");
-        student = new Student(test.readString(), test.readString());
+        System.out.println("Write you name: ");
+        String name = test.readString();
+        System.out.println("Write you surname: ");
+        String surname = test.readString();
+
+        student = new Student(name, surname);
         test.out("Dear  " + student.getName() + " " + student.getSurname() + ", please answer the following question: " + "\n");
-        for (int i = 0; i < 6; i++) {
+        //как организовать цикл пока не закончаться все элементы массива?;
+        int count  = daoQuiz.getCountList();
+        for (int i = 0; i < count; i++) {
             test.out(this.getById(i).getQuestion());
             test.out("....................................\n This is variants of response:");
             String response1 = getById(i).getAnswerFirst().getResponse();
             String response2 = getById(i).getAnswerSecond().getResponse();
             String response3 = getById(i).getAnswerThird().getResponse();
-            test.out("1) " + response1 + "\n 2) " + response2 + "\n 3) " + response3);
+            test.out(" 1) " + response1 + "\n 2) " + response2 + "\n 3) " + response3);
             test.out("Shoose number of response\"");
             int id = test.readIdQuiz();
             getAnswerList(this.getById(i), id);
             test.out("======================================================");
         }
+        System.out.println("You are right in " + rigtResponse + " times and you are wrong in " + wrongResponse + " times.");
     }
 
         private void getAnswerList (Quiz quiz, int id){
