@@ -1,10 +1,6 @@
 package ru.otus.spring.service;
 
-import ru.otus.spring.domain.Student;
-
-import java.io.PrintStream;
 import java.util.Scanner;
-
 import static java.lang.System.out;
 
 public class IOServiceTestImpl implements IOServiceTest{

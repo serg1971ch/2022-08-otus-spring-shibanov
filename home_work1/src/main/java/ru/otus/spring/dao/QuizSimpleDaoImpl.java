@@ -3,6 +3,7 @@ package ru.otus.spring.dao;
 import ru.otus.spring.domain.Answer;
 import ru.otus.spring.domain.Quiz;
 import ru.otus.spring.domain.TypeResponse;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,25 +23,14 @@ public class QuizSimpleDaoImpl implements QuizDao {
     }
 
     @Override
-    public Quiz findById(int id) {
-        quizzes = parseFile();
-        return quizzes.get(id);
+    public ArrayList<Quiz> getQuizList() {
+        return parseFile();
     }
-
-    @Override
-    public int getCountList() {
-        return quizzes.size();
-    }
-
-//    @Override
-//    public ArrayList<Quiz> getQuizList() {
-//        return this.quizzes = quizzes;
-//    }
 
     private ArrayList<Quiz> parseFile() {
         List<String> lines = null;
         String[] columns;
-        String url = "C:\\Users\\ASUS\\Desktop\\otus\\2022-08-otus-spring-shibanov\\home_work1\\src\\main\\resources\\";
+        String url = "/home/a/Документы/2022-08-otus-spring-shibanov/home_work1/src/main/resources/";
         try {
             lines = Files.readAllLines(Paths.get(url + refSourseFile));
         } catch (IOException e) {
